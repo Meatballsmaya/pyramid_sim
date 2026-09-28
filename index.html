@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWFS 拼接子镜精共相共焦闭环控制系统</title>
+    <meta name="description" content="基于金字塔波前传感器 (PWFS) 与 12 促动器推拉标定/控制矩阵解耦的四子镜精共相共焦闭环仿真系统" />
+    <meta property="og:title" content="PWFS 拼接子镜精共相共焦闭环控制系统" />
+    <meta property="og:description" content="基于金字塔波前传感器 (PWFS) 与 12 促动器推拉标定/控制矩阵解耦的四子镜精共相共焦闭环仿真系统" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      // Prevent Vite client from auto-reloading the page when HMR WebSocket disconnects in iframe/Cloud Run environment
+      (function() {
+        if (typeof window !== 'undefined') {
+          const OrigWebSocket = window.WebSocket;
+          class MockHmrSocket extends EventTarget {
+            constructor(url, protocols) {
+              super();
+              this.url = url;
+              this.protocols = protocols;
+              this.readyState = 1; // WebSocket.OPEN
+              this.binaryType = 'blob';
+              this.bufferedAmount = 0;
+              this.extensions = '';
+              this.protocol = Array.isArray(protocols) ? protocols[0] : (protocols || '');
+              setTimeout(() => {
+                const openEvt = new Event('open');
+                this.dispatchEvent(openEvt);
+                if (typeof this.onopen === 'function') this.onopen(openEvt);
+              }, 10);
+            }
+            send() {}
+            close() {}
+          }
+          MockHmrSocket.CONNECTING = 0;
+          MockHmrSocket.OPEN = 1;
+          MockHmrSocket.CLOSING = 2;
+          MockHmrSocket.CLOSED = 3;
+
+          window.WebSocket = function(url, protocols) {
+            const urlStr = String(url || '');
+            const isViteHmr =
+              protocols === 'vite-hmr' ||
+              protocols === 'vite-ping' ||
+              (Array.isArray(protocols) && (protocols.includes('vite-hmr') || protocols.includes('vite-ping'))) ||
+              urlStr.includes('vite-hmr') ||
+              urlStr.includes('token=');
+
+            if (isViteHmr) {
+              return new MockHmrSocket(url, protocols);
+            }
+            return new OrigWebSocket(url, protocols);
+          };
+          window.WebSocket.CONNECTING = 0;
+          window.WebSocket.OPEN = 1;
+          window.WebSocket.CLOSING = 2;
+          window.WebSocket.CLOSED = 3;
+          if (OrigWebSocket) {
+            window.WebSocket.prototype = OrigWebSocket.prototype;
+          }
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

@@ -1,0 +1,8 @@
+{
+  "name": "Remix PWFS 拼接子镜精共相共焦闭环控制系统",
+  "description": "基于金字塔波前传感器 (PWFS) 与 12 促动器推拉标定/控制矩阵解耦的四子镜精共相共焦闭环仿真系统",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
